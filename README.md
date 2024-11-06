@@ -1,5 +1,5 @@
 # eshop-pbp-mobile
-<details open>
+<details>
 <summary><h2>Tugas 7</h2></summary>
 
 ## 1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya.
@@ -58,6 +58,81 @@ onTap: () {
               SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
             );
         },
+```
+
+</details>
+<details open>
+<summary><h2>Tugas 8</h2></summary>
+
+## 1. Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+Const berguna untuk membuat widget atau objek yang immutable atau tidak dapat diubah-ubah setelah dibuat. Dengan const, inisialisasi objek cukup sekali sehingga hemat memori dan cepat untuk di-retrieve karena sifatnya yang tidak akan berubah. Const berguna untuk membuat widget stateless atau statis dengan nilai yang sudah diketahui. Sebaiknya const tidak digunakan dalam widget yang stateful dan memerlukan perubahan data secara dinamis.
+
+## 2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+Column mengatur widget secara vertikal, sedangkan row mengatur widget secara horizontal. 
+Contoh column:
+```
+Column(
+  children: [
+    Text("A"),
+    Text("B"),
+    Text("C"),
+  ],
+)
+```
+Contoh row:
+```
+Row(
+  children: [
+    Text("A"),
+    Text("B"),
+    Text("C"),
+  ],
+)
+```
+
+## 3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+### Elemen input yang saya gunakan adalah:
+- TextFormField: diimplementasikan untuk menerima input name, price, dan description
+- ElevatedButton: diimplementasikan untuk membuat save button
+### Terdapat beberapa elemen input flutter lain yang tidak saya implementasikan pada tugas ini yaitu:
+- Checkbox: berguna untuk membuat input berupa opsi yang bisa dipilih lebih dari satu
+- DropdownButton: berguna untuk membuat input berupa opsi dengan maksimal pilihan 1, dan terdapat banyak pilihan
+- Radio: berguna untuk membuat input berupa opsi dengan maksimal pilihan 1, dan terdapat sedikit pilihan
+- Slider: berguna untuk membuat input dengan range tertentu
+
+## 4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+Tema dapat diatur secara global di MaterialApp pada main.dart:
+```
+return MaterialApp(
+      title: 'YumYum Bakeshop',
+      theme: ThemeData(
+         colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.red,
+        ).copyWith(
+          primary: Colors.red.shade900,
+          secondary: Colors.red.shade700,
+        ),  
+        useMaterial3: true,
+      ),
+      home: MyHomePage(),
+    );
+```
+Pada pengaturan ini, saya mengimplementasikan warna merah gelap atau maroon sebagai warna utama dari aplikasi ini. Pengaturan ini diimplementasi pada aplikasi melalui kode berikut pada menu.dart:
+```
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        iconTheme: const IconThemeData(color: Colors.white),
+```
+
+## 5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+Navigasi page dapat dilakukan melalui Navigator dan MaterialPageRoute. Navigator akan memungkinkan push untuk menambahkan halaman baru ke stack,atau pop untuk kembali ke halaman sebelumnya. MaterialPageRoute membuat koneksi kepada halaman yang dituju dengan transisi untuk memperhalus pergantian halaman. Berikut implementasinya dalam kode saya:
+```
+Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(
+    builder: (context) => BakesEntryFormPage(),
+  ),
+);
+
 ```
 
 </details>

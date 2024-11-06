@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:eshop_pbp/menu.dart';
+import 'package:eshop_pbp/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
          colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.red, // Use a red base and customize below
+          primarySwatch: Colors.red, 
         ).copyWith(
-          primary: Colors.red.shade900, // Deep maroon for primary color
-          secondary: Colors.red.shade700, // Slightly lighter maroon for secondary
+          primary: Colors.red.shade900,
+          secondary: Colors.red.shade700, 
         ),  
         useMaterial3: true,
       ),
