@@ -1,3 +1,4 @@
+import 'package:eshop_pbp/screens/list_bakesentry.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop_pbp/screens/menu.dart';
 import 'package:eshop_pbp/screens/bakesentry_form.dart';
@@ -50,7 +51,7 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.mood),
+            leading: const Icon(Icons.add_circle_outline),
             title: const Text('Add Fresh Bakes'),
             onTap: () {
               Navigator.pushReplacement(
@@ -60,6 +61,16 @@ class LeftDrawer extends StatelessWidget {
               ),
             );
             },
+          ),
+          ListTile(
+              leading: const Icon(Icons.cake),
+              title: const Text('List of Bakes'),
+              onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const BakesEntryPage()),
+                  );
+              },
           ),
         ],
       ),
